@@ -1,16 +1,32 @@
-import articles from './_articles.js';
+let articles = []
 
-const contents = JSON.stringify(articles.map(article => {
-	return {
-		title: article.title,
-		slug: article.slug
-	};
-}));
+let error = null
+let url =
+	process.env.API_URL || "https://the-link-cms-wnzzi.ondigitalocean.app/";
 
-export function get(req, res) {
-	res.writeHead(200, {
-		'Content-Type': 'application/json'
-	});
+let lookupTable = [];
 
-	res.end(contents);
+async function loadArticles() {
+	try {
+		const res = await axios.get(url + "articles");
+		articles = res.data;
+		articles.map((article) => {
+			article.title = article.Title;
+			article.slug = article.Title.toLowerCase().replace(/ /g, '-').replace(/[^\w]+/g, '');
+			lookupTable[article.slug] = article.id;
+		});
+	} catch (e) {
+		error = e
+	}
+};
+
+articles.getArticle = (async (slug) => {
+	await loadArticles();
+	let id = lookupTable[slug];
+	return articles[id];
+});
+
+export async function get(req, res, next) {
+	const { slug } = req.params;
+	const article = await articles.getArticle(slug);
 }

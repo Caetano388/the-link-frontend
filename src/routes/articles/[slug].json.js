@@ -1,24 +1,40 @@
-import articles from './_articles'
+import articles from "./_articles"
 
 const lookup = new Map();
-articles.forEach(article => {
-    lookup.set(article.slug, JSON.stringify(article));
-});
 
-export function get(req, res, next) {
-    const { slug } = req.params;
+let error = null;
 
+try {
+	articles.forEach((article) => {
+    	lookup.set(article.slug, JSON.stringify(article))
+	});
+} catch (e) {
+	error = e
+}
+
+export async function get(req, res, next) {
+	if (lookup.size <= 0) {
+		let arts = await articles();
+		arts.forEach((article) => {
+			article.slug = article.Title.toLowerCase().replace(/ /g, '-').replace(/[^\w]+/g, '');
+			lookup.set(article.slug, JSON.stringify(article))
+		});
+	}
+
+	const { slug } = req.params;
     if (lookup.has(slug)) {
         res.writeHead(200, {
-            'Content-Type': 'application/json'
-        });
-    } else {
-        res.writeHead(404, {
-            'Content-Type': 'application/json'
-        });
+			'Content-Type': 'application/json'
+		});
 
-        res.end(JSON.stringify({
-            message: 'Not found'
-        }));
-    }
+		res.end(lookup.get(slug));
+	} else {
+		res.writeHead(404, {
+			'Content-Type': 'application/json'
+		});
+
+		res.end(JSON.stringify({
+			message: `Not found`
+		}));
+	}
 }
