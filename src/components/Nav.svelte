@@ -1,4 +1,7 @@
 <script>
+import { prevent_default } from "svelte/internal";
+
+
 	export let segment;
 	let active = false;
 	function openSidebar(event) {
@@ -32,7 +35,7 @@
 				</ul>
 			</nav>
 		</div>
-		<a href="#sidebar" class="toggle" on:click={openSidebar}>
+		<a href="#sidebar" class="toggle" on:click|preventDefault={openSidebar}>
 			Toggle
 		</a>
 	</div>
