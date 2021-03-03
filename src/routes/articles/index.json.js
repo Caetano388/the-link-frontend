@@ -4,7 +4,7 @@ export async function get(req, res, next) {
 	let arts = await articles();
 
 	const contents = JSON.stringify(arts.map((article) => {
-		article.slug = article.Title.toLowerCase().replace(/ /g, '-').replace(/[^\w]+/g, '');
+		article.slug = 'articles/' + article.Title.toLowerCase().replace(/ /g, '-').replace(/[^\w]+/g, '');
 
 		return article;
 	}));
