@@ -4,7 +4,7 @@
     url += image.formats.large.url;
     url = url.replace(/\/\//g, '/');
 
-    let style = 'background-image: linear-gradient(hsla(0, 0%, 0%, 0.18), hsla(0, 0%, 0%, 0.2)), url("' + url + '");';
+    let style = 'background-image: linear-gradient(hsla(0, 0%, 0%, 0.18), hsla(0, 0%, 0%, 0.2)), url(' + url + ');';
 </script>
 
 <style>
