@@ -2519,6 +2519,43 @@ button:disabled,
         padding: 3em 0 1em 0;
     }
 }
+#main > .inner_with_hero {
+    height: 75%;
+}
+#main > .inner_with_hero > .hero-image > header {
+    position: absolute;
+    bottom: 15%;
+    border-bottom: 0px;
+    display: inline-block;
+}
+#main > .inner_with_hero > .hero-image > header > .cta {
+    display: block;
+    margin-top: 10%;
+}
+#main > .inner_with_hero > .hero-image > header > .cta > a.button {
+    border-color: hsla(0, 0%, 96%, 0.7);
+    background-color: hsla(0, 0%, 6%, 0.05);
+    color: hsla(0, 0%, 96%, 1) !important;
+    font-weight: 600;
+}
+#main > .inner_with_hero > .hero-image > header > .logo {
+    display: block;
+    border-bottom: 5px solid #f56a6a;
+    transition: all ease 0.4s;
+}
+#main > .inner_with_hero > .hero-image > header > .logo > strong {
+    color: hsla(0, 0%, 96%, 1);
+    font-weight: 800;
+    font-size: xx-large;
+    transition: all ease-in-out 0.5s;
+}
+#main > .inner_with_hero > .hero-image > header > .logo:hover {
+    padding-right: 2em;
+    padding-bottom: 0.5em;
+}
+#main > .inner_with_hero > .hero-image > header > .logo:hover > strong {
+    text-shadow: 2px 0.5em 10px hsla(0, 0%, 6%, 0.1);
+}
 #search form {
     text-decoration: none;
     position: relative;

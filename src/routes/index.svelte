@@ -1,43 +1,23 @@
-<script>
-	import successkid from 'images/successkid.jpg';
+<script context="module">
+	import axios from "axios";
+	import Page from "../components/Page.svelte";
+
+	let url =
+		process.env.API_URL || "https://the-link-cms-wnzzi.ondigitalocean.app/";
+
+	export async function preload({ params }) {
+		const res = await axios.get(url + "front-page");
+		let page = res.data;
+		return { page: page };
+	};
 </script>
 
-<style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
-	}
-
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
-
-	figure {
-		margin: 0 0 1em 0;
-	}
-
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
-
-	p {
-		margin: 1em auto;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-	}
-</style>
+<script>
+	export let page;
+</script>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>The Link</title>
 </svelte:head>
 
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+<Page page={ page } />
