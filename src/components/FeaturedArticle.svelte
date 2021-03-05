@@ -18,8 +18,6 @@
         </ul>
     </div>
     {#if content.Main_Images }
-        <span class="image object">
-            <Image image={ content.Main_Images[0] } size="small" />
-        </span>
+        <Image image={ content.Main_Images[0] } size="small" />
     {/if}
 </section>

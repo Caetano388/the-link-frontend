@@ -20,7 +20,7 @@
 		<div class="inner">
 			<header id="header">
 				<a href="/" class="logo">
-					<strong>Title</strong>
+					<strong>The Link</strong>
 				</a>
 			</header>
 			<slot></slot>

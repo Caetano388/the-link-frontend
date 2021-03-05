@@ -30,7 +30,9 @@
 <FeaturedArticle content={ featured_article } />
 
 <section>
-	<h1>Recent articles</h1>
+	<header class="major">
+		<h2>Recent articles</h2>
+	</header>
 
 	<CardGrid articles={ articles } />
 </section>
