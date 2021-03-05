@@ -1,10 +1,16 @@
 <script>
-	import Link_CTA from "./Link_CTA";
+	import Markdown from "./Markdown.svelte";
 	export let page;
-	
-    let cta = page.Link_CTA;
+
+	let components = Object.keys(page);
 </script>
 
-{#if cta}
-	<Link_CTA params={cta} />
-{/if}
+{#each components as component}
+	{#if component == "Body" || component == "Site_Info"}
+		<Markdown markdown={page[component]} />
+	{:else if component == "Additional_Paragraphs"}
+		{#each page[component] as paragraph}
+			<Markdown markdown={paragraph} />
+		{/each}
+	{/if}
+{/each}

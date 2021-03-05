@@ -17,7 +17,7 @@ export async function get(req, res, next) {
 		let arts = await articles();
 		arts.forEach((article) => {
 			article.slug = article.Title.toLowerCase().replace(/ /g, '-').replace(/[^\w]+/g, '');
-			lookup.set(article.slug, JSON.stringify(article))
+			lookup.set(article.slug, JSON.stringify(article));
 		});
 	}
 

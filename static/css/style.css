@@ -2520,7 +2520,7 @@ button:disabled,
     }
 }
 #main > .inner_with_hero {
-    height: 75%;
+    height: 75vh;
 }
 #main > .inner_with_hero > .hero-image > header {
     position: absolute;
@@ -2824,6 +2824,7 @@ button:disabled,
     }
 }
 #banner {
+    max-height: 70vh;
     padding: 6em 0 4em 0;
     display: -moz-flex;
     display: -webkit-flex;

@@ -3,12 +3,13 @@
 		const { slug } = params;
 		const res = await this.fetch(`articles/${slug}.json`);
 		const article = await res.json();
-
 		return { article : article };
 	}
 </script>
 
 <script>
+import PageContent from "../../components/PageContent.svelte";
+
 	export let article;
 </script>
 
@@ -19,5 +20,5 @@
 <h1>{article.Title}</h1>
 
 <div class="content">
-    {@html article.Body}
+    <PageContent page={article} />
 </div>

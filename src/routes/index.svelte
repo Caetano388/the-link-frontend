@@ -8,6 +8,14 @@
 	export async function preload({ params }) {
 		const res = await axios.get(url + "front-page");
 		let page = res.data;
+		let keys = Object.keys(page);
+		page.text_components = keys.map((key) => {
+			if (key == 'Site_Info' || key == 'Body' || key == 'Additional_Paragraphs') {
+				if (!(page[key] == ''|| typeof page[key] == 'undefined')) {
+					return page[key];
+				}
+			}
+		});
 		return { page: page };
 	};
 </script>

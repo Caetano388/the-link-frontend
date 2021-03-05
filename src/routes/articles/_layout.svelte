@@ -23,9 +23,7 @@
 					<strong>Title</strong>
 				</a>
 			</header>
-			<main>
-				<slot></slot>
-			</main>
+			<slot></slot>
 		</div>
 	</div>
 	<Nav {segment}/>

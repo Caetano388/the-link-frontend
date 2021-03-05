@@ -10,7 +10,10 @@
 </script>
 
 <script>
+	import FeaturedArticle from "../../components/FeaturedArticle.svelte";
 	export let articles;
+
+	let featured_article = articles[1];
 </script>
 
 <style>
@@ -23,6 +26,8 @@
 <svelte:head>
 	<title>Articles</title>
 </svelte:head>
+
+<FeaturedArticle content={ featured_article } />
 
 <section>
 	<h1>Recent articles</h1>
