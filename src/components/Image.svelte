@@ -1,6 +1,7 @@
 <script>
     export let size = "large";
     export let image;
+    export let pos = '';
     let url = process.env.API_URL || "https://the-link-cms-wnzzi.ondigitalocean.app/";
     url += image.formats[size].url;
     url = url.replace(/\/\//g, '/');
@@ -12,6 +13,6 @@
     }
 </script>
 
-<span class="{imgClass}">
+<span class="{imgClass} {pos}">
     <img src="{url}" alt="{image.alternativeText}" />
 </span>

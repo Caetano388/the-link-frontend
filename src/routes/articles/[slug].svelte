@@ -23,7 +23,7 @@
     <h1>{article.Title}</h1>
   </header>
   {#if article.Main_Images[0]}
-    <Image image={article.Main_Images[0]} size="large" />
+    <Image image={article.Main_Images[0]} size="medium" pos="right" />
   {/if}
   <div class="content">
     <PageContent page={article} type="article" />

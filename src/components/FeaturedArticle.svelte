@@ -7,6 +7,9 @@
     <div class="content">
         <header>
             <h1>{ content.Title }</h1>
+            {#if content.Subtitle}
+                <p>{ content.Subtitle }</p>
+            {/if}
         </header>
         {#if content.Summary}
             <p>{ content.Summary }</p>
