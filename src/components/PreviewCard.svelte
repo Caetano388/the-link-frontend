@@ -10,9 +10,16 @@
             <Image image={content.image} />
         {/if}
     </a>
-    <p>
-        {content.Summary}
-    </p>
+    <h3>{content.Title}</h3>
+    {#if content.Subtitle}
+        <p>
+            {content.Subtitle}
+        </p>
+    {:else}
+        <p>
+            {content.Summary}
+        </p>
+    {/if}
     <ul class="actions">
         <li>
             <a href="{content.slug}" class="button">More</a>
