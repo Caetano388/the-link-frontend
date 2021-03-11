@@ -14,9 +14,26 @@
   export let article;
 </script>
 
+<style>
+  .breadcrumb {
+    margin-top: 1.5em;
+    vertical-align: middle;
+  }
+  .breadcrumb > a {
+    padding-bottom: 2px;
+  }
+  .breadcrumb > a::before {
+    font-size: large;
+    content: '\2329';
+    padding-right: 0.5em;
+  }
+</style>
+
 <svelte:head>
   <title>{article.Title}</title>
 </svelte:head>
+
+<h5 class="breadcrumb"><a href="/articles">Articles</a></h5>
 
 <section>
   <header class="main">
