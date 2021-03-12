@@ -17,9 +17,14 @@
             pagination = true;
             arts_to_go = articles;
             while (arts_to_go.size) {
-                paged_articles = arts_to_go.slice(0, 10);
-                article_pages.push(paged_articles);
-                arts_to_go = arts_to_go.slice(10);
+                if (arts_to_go.size > 10) {
+                    paged_articles = arts_to_go.slice(0, 10);
+                    article_pages.push(paged_articles);
+                    arts_to_go = arts_to_go.slice(10);
+                } else {
+                    paged_articles = arts_to_go;
+                    article_pages.push(paged_articles);
+                }
             }
             set_pagination(0);
         } else {
