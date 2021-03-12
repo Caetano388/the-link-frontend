@@ -13,6 +13,12 @@
     }
 </script>
 
+<style>
+    .object {
+        margin-left: 1em;
+    }
+</style>
+
 <span class="{imgClass} {pos}">
     <img src="{url}" alt="{image.alternativeText}" />
 </span>
