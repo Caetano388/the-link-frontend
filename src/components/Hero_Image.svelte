@@ -2,7 +2,7 @@
     export let image;
     let url = process.env.API_URL || "https://the-link-cms-wnzzi.ondigitalocean.app/";
     url += image.url;
-    url = url.replace(/\/\//g, '/');
+    url = url.replace(/app\//g, 'app');
 
     let style = 'background-image: linear-gradient(hsla(0, 0%, 0%, 0.18), hsla(0, 0%, 0%, 0.2)), url(' + url + ');';
 </script>
