@@ -8,8 +8,9 @@
 </script>
 
 <script>
-  import Image from "../../components/Image.svelte";
-  import PageContent from "../../components/PageContent.svelte";
+  import Image from "../../components/BaseComponents/Images/Image.svelte";
+  import CarouselComponent from "../../components/ParentComponents/CarouselComponent.svelte";
+  import PageContent from "../../components/ParentComponents/PageContent.svelte";
 
   export let article;
 </script>
@@ -39,7 +40,9 @@
   <header class="main">
     <h1>{article.Title}</h1>
   </header>
-  {#if article.Main_Images[0]}
+  {#if article.Main_Images.size > 1}
+    <CarouselComponent images={article.Main_Images} />
+  {:else if article.Main_Images[0]}
     <Image image={article.Main_Images[0]} size="medium" pos="right" />
   {/if}
   <div class="content">

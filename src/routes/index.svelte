@@ -16,16 +16,29 @@
 				}
 			}
 		});
-		return { page: page };
+
+		const articlesRes = await this.fetch(`articles.json`);
+		let articles = await articlesRes.json();
+
+		const taxonomiesRes = await this.fetch(`taxonomies.json`);
+		let taxonomies = await taxonomiesRes.json();
+
+		return { page: page, articles: articles, taxonomies: taxonomies };
 	};
 </script>
 
 <script>
+	import ArticlesDashboard from "../components/TopLevelComponents/ArticlesDashboard.svelte";
+
 	export let page;
+	export let articles;
+	export let taxonomies;
 </script>
 
 <svelte:head>
 	<title>The Link</title>
 </svelte:head>
 
-<Page page={ page } />
+<Page { page }>
+	<ArticlesDashboard { articles } { taxonomies } />
+</Page>
