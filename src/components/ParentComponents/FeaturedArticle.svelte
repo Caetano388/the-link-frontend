@@ -1,5 +1,5 @@
 <script>
-    import Image from "./Image.svelte";
+    import Image from "../BaseComponents/Images/Image.svelte";
     export let content;
 </script>
 
@@ -20,7 +20,7 @@
             </li>
         </ul>
     </div>
-    {#if content.Main_Images }
+    {#if content.Main_Images[0] }
         <Image image={ content.Main_Images[0] } size="small" />
     {/if}
 </section>

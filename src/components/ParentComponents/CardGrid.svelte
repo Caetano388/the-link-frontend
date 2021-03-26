@@ -1,9 +1,8 @@
 <script>
     import { onMount } from "svelte";
 
-    import Card from "./PreviewCard.svelte";
+    import Card from "../BaseComponents/PreviewCard.svelte";
     export let articles;
-
 
     let pagination = false;
     let pageNum;
@@ -12,6 +11,7 @@
 
     let article_pages = [];
     let paged_articles = [];
+    
     onMount(async () => {
         if (articles.size > 10) {
             pagination = true;
