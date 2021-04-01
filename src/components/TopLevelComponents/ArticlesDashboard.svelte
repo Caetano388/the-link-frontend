@@ -1,12 +1,9 @@
 <script>
-    import FeaturedArticle from "../ParentComponents/FeaturedArticle.svelte";
     import CardGrid from "../ParentComponents/CardGrid.svelte";
     import Column from "../ParentComponents/Column.svelte";
 
     export let articles;
     export let taxonomies;
-
-    let featArticle = articles[0];
 
     function getFilteredArticles(taxonomy) {
         let filtered = articles.filter(article => {
@@ -37,9 +34,6 @@
     let groupedTaxonomies = groupedTaxons();
 </script>
 
-<section>
-    <FeaturedArticle content={ featArticle } />
-</section>
 <section>
     <header class="major">
         <h2>Recent articles</h2>

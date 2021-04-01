@@ -1,6 +1,6 @@
 <script>
 	export let segment;
-	let active = false;
+	let active = true;
 	function openSidebar(event) {
 		active = !active;
 	}

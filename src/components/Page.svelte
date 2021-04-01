@@ -3,6 +3,7 @@
   import PageContent from "./ParentComponents/PageContent.svelte";
   import HeroImage from "./BaseComponents/Images/Hero_Image.svelte";
   import Link_CTA from "./BaseComponents/Text/Link_CTA.svelte";
+  import { compute_slots } from "svelte/internal";
   
   export let page;
 
@@ -20,6 +21,7 @@
           <a href="/" class="logo">
             <strong>The Link</strong>
           </a>
+          <span>Visit our About Us page to read our Mission Statement</span>
           <Link_CTA params={ cta }/>
         </header>
       </HeroImage>
@@ -31,8 +33,9 @@
         </a>
       </header>
       {/if}
-      <PageContent { page } />
       <slot></slot>
+      <PageContent { page } />
+      <slot name="postcontent"></slot>
     </div>
   </div>
   <Nav />

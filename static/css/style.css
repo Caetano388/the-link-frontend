@@ -2520,13 +2520,18 @@ button:disabled,
     }
 }
 #main > .inner_with_hero {
-    height: 75vh;
+    height: 70vh;
 }
 #main > .inner_with_hero > .hero-image > header {
     position: absolute;
     bottom: 15%;
     border-bottom: 0px;
     display: inline-block;
+    color: hsla(0, 0%, 96%, 1);
+}
+#main > .inner_with_hero > .hero-image > header > span {
+    color: hsla(0, 0%, 96%, 1);
+    padding: 0 1em 0 0;
 }
 #main > .inner_with_hero > .hero-image > header > .cta {
     display: block;

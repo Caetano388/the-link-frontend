@@ -1,4 +1,5 @@
 <script>
+  import paragraph from "markdown-it/lib/rules_block/paragraph";
   import Markdown from "../BaseComponents/Text/Markdown.svelte";
   import PullQuote from "../BaseComponents/Text/PullQuote.svelte";
   export let page;
@@ -35,7 +36,11 @@
   {:else if component == "Additional_Paragraphs"}
     {#each page[component] as paragraph}
       {#if paragraph.__component == "text-inserts.addl-body-paragraphs"}
-        <Markdown header={ paragraph.Section_Header } markdown={ paragraph.Section_Body } />
+        {#if paragraph.Section_Heading}
+          <Markdown header={ paragraph.Section_Heading } markdown={ paragraph.Section_Body } />
+        {:else}
+          <Markdown header={ paragraph.Section_Header } markdown={ paragraph.Section_Body } />
+        {/if}
       {:else if paragraph.__component == "text-inserts.pull-quote"}
         <PullQuote paragraph={ paragraph } />
       {/if}
